@@ -1,0 +1,37 @@
+plugins {
+    id 'application'
+    id 'org.jreleaser' version '0.8.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'org.example.App'
+}
+
+jreleaser {
+    project {
+        website = 'https://github.com/itzg/try-jreleaser-brew'
+        docsUrl = 'https://github.com/itzg/try-jreleaser-brew'
+        authors = ['Geoff Bourne']
+        tags = ['cli']
+        license = 'MIT'
+    }
+    packagers {
+        brew {
+            active = 'RELEASE'
+            tap {
+                owner = 'itzg'
+                name = 'homebrew-tap'
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
